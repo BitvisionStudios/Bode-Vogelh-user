@@ -1,0 +1,1563 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vogelhäuser Bode – Individuelle Vogelhäuser</title>
+    <meta
+      name="description"
+      content="Individuelle Vogelhäuser, Nistkästen, Aufhänger und Ständer – in Handarbeit aus sauerländer Holz gefertigt."
+    />
+    <style>
+      :root {
+        --bg: #f5f5f7;
+        --bg-alt: #ffffff;
+        --primary: #256f4a;
+        --primary-soft: #e2f3ea;
+        --accent: #f4b041;
+        --text: #111827;
+        --muted: #6b7280;
+        --radius: 16px;
+        --shadow-soft: 0 10px 30px rgba(15, 23, 42, 0.08);
+        --max-width: 1080px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          sans-serif;
+        background: var(--bg);
+        color: var(--text);
+      }
+
+      h4 {
+        color: red;
+        text-decoration: underline;
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .page {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* Header / Navigation */
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 40;
+        backdrop-filter: blur(12px);
+        background: rgba(245, 245, 247, 0.9);
+        border-bottom: 1px solid rgba(148, 163, 184, 0.4);
+      }
+
+      .nav {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: 0.6rem 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+      }
+
+      .nav-left {
+        display: flex;
+        align-items: center;
+        gap: 0.7rem;
+      }
+
+      /* SVG-Logo */
+      .logo-wrapper svg {
+        height: 60px;
+        width: auto;
+        display: block;
+      }
+
+      .nav-title {
+        display: flex;
+        flex-direction: column;
+        gap: 0.1rem;
+      }
+
+      .nav-title span:first-child {
+        font-weight: 600;
+        font-size: 0.95rem;
+      }
+
+      .nav-title span:last-child {
+        font-size: 0.78rem;
+        color: var(--muted);
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 1.3rem;
+        font-size: 0.9rem;
+      }
+
+      .nav-links a {
+        color: var(--muted);
+      }
+
+      .nav-links a:hover {
+        color: var(--text);
+      }
+
+      .nav-cta {
+        padding: 0.5rem 1rem;
+        border-radius: 999px;
+        border: none;
+        background: var(--primary);
+        color: #f9fafb;
+        font-size: 0.9rem;
+        font-weight: 600;
+        cursor: pointer;
+      }
+
+      .nav-toggle {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+      }
+
+      main {
+        flex: 1;
+      }
+
+      .section {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: 2.4rem 1rem;
+      }
+
+      .section h2 {
+        margin: 0 0 0.4rem;
+        font-size: 1.45rem;
+      }
+
+      .section-sub {
+        margin: 0;
+        font-size: 0.9rem;
+        color: var(--muted);
+      }
+
+      /* Hero */
+      #hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+        gap: 2rem;
+        padding-top: 2.6rem;
+      }
+
+      .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        background: #e5f3ec;
+        color: #166534;
+        border-radius: 999px;
+        padding: 0.25rem 0.6rem;
+        font-size: 0.78rem;
+      }
+
+      .hero-title {
+        font-size: clamp(2rem, 3vw, 2.5rem);
+        margin: 0.9rem 0 0.5rem;
+      }
+
+      .hero-title span {
+        color: var(--primary);
+      }
+
+      .hero-subtitle {
+        font-size: 0.96rem;
+        color: var(--muted);
+        max-width: 32rem;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.8rem;
+        margin-top: 1.4rem;
+      }
+
+      .btn-primary,
+      .btn-secondary {
+        border-radius: 999px;
+        padding: 0.7rem 1.2rem;
+        font-size: 0.9rem;
+        font-weight: 600;
+        border: none;
+        cursor: pointer;
+      }
+
+      .btn-primary {
+        background: var(--primary);
+        color: #f9fafb;
+      }
+
+      .btn-secondary {
+        background: #ffffff;
+        border: 1px solid rgba(148, 163, 184, 0.7);
+        color: var(--text);
+      }
+
+      .hero-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+        margin-top: 1.2rem;
+        font-size: 0.8rem;
+        color: var(--muted);
+      }
+
+      .hero-meta span {
+        padding: 0.35rem 0.7rem;
+        border-radius: 999px;
+        background: #e5e7eb;
+      }
+
+      .hero-visual {
+        background: var(--bg-alt);
+        border-radius: var(--radius);
+        padding: 0.9rem;
+        box-shadow: var(--shadow-soft);
+      }
+
+      .hero-main-img {
+        border-radius: 12px;
+        overflow: hidden;
+        aspect-ratio: 4 / 3;
+      }
+
+      .hero-main-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .hero-note {
+        margin-top: 0.7rem;
+        font-size: 0.8rem;
+        color: var(--muted);
+      }
+
+      /* Produkt-Überblick */
+      #produkte {
+        background: linear-gradient(to bottom, #f5f5f7 0%, #f9fafb 100%);
+      }
+
+      .product-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 1rem;
+        margin-top: 1.4rem;
+      }
+
+      .product-card {
+        background: var(--bg-alt);
+        border-radius: var(--radius);
+        padding: 0.9rem;
+        box-shadow: var(--shadow-soft);
+        font-size: 0.88rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+      }
+
+      .product-image {
+        border-radius: 12px;
+        overflow: hidden;
+        aspect-ratio: 4 / 3;
+      }
+
+      .product-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .product-tag {
+        display: inline-block;
+        font-size: 0.75rem;
+        padding: 0.18rem 0.5rem;
+        border-radius: 999px;
+        background: var(--primary-soft);
+        color: #166534;
+      }
+
+      .product-title {
+        font-weight: 600;
+      }
+
+      .product-meta {
+        font-size: 0.85rem;
+        color: var(--muted);
+      }
+
+      /* Galerie */
+      #galerie {
+        padding-top: 0.8rem;
+      }
+
+      .gallery-tabs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+        margin-top: 1.2rem;
+        margin-bottom: 1rem;
+      }
+
+      .gallery-tab {
+        padding: 0.4rem 0.9rem;
+        border-radius: 8px;
+        border: 1px solid #d1d5db;
+        background: #fff;
+        cursor: pointer;
+        font-size: 0.85rem;
+      }
+
+      .gallery-tab.active {
+        background: var(--primary);
+        color: #fff;
+        border-color: var(--primary);
+      }
+
+      .gallery-wrapper {
+        margin-top: 0.2rem;
+        background: var(--bg-alt);
+        border-radius: var(--radius);
+        padding: 1rem;
+        box-shadow: var(--shadow-soft);
+      }
+
+      .slider {
+        position: relative;
+        border-radius: 12px;
+        overflow: hidden;
+        aspect-ratio: 16 / 9;
+      }
+
+      .slider-track {
+        display: flex;
+        height: 100%;
+        transition: transform 0.4s ease;
+      }
+
+      .slide {
+        min-width: 100%;
+        height: 100%;
+        position: relative;
+      }
+
+      .slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .slide-caption {
+        position: absolute;
+        left: 0.9rem;
+        bottom: 0.8rem;
+        background: rgba(15, 23, 42, 0.78);
+        color: #f9fafb;
+        font-size: 0.8rem;
+        padding: 0.3rem 0.6rem;
+        border-radius: 999px;
+      }
+
+      .slider-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 30px;
+        height: 30px;
+        border-radius: 999px;
+        border: none;
+        background: rgba(15, 23, 42, 0.7);
+        color: #f9fafb;
+        cursor: pointer;
+        font-size: 1.1rem;
+      }
+
+      .slider-btn.prev {
+        left: 0.5rem;
+      }
+      .slider-btn.next {
+        right: 0.5rem;
+      }
+
+      .slider-dots {
+        display: flex;
+        justify-content: center;
+        gap: 0.4rem;
+        margin-top: 0.7rem;
+      }
+
+      .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 999px;
+        border: none;
+        background: #cbd5f5;
+        opacity: 0.6;
+        cursor: pointer;
+      }
+
+      .dot.active {
+        width: 16px;
+        background: var(--primary);
+        opacity: 1;
+      }
+
+      /* Qualität / Arbeit */
+      #qualitaet {
+        padding-top: 1.6rem;
+      }
+
+      .quality-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 1rem;
+        margin-top: 1.4rem;
+      }
+
+      .quality-card {
+        background: var(--bg-alt);
+        border-radius: var(--radius);
+        padding: 0.9rem;
+        box-shadow: var(--shadow-soft);
+        font-size: 0.88rem;
+      }
+
+      .quality-card strong {
+        display: block;
+        margin-bottom: 0.3rem;
+      }
+
+      .quality-card p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      #arbeit {
+        padding-top: 0.4rem;
+      }
+
+      #arbeit p {
+        margin-top: 0.8rem;
+        font-size: 0.9rem;
+        color: var(--muted);
+      }
+
+      /* Kontakt */
+      #kontakt {
+        padding-top: 1.6rem;
+      }
+
+      .contact-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+        gap: 1.8rem;
+      }
+
+      .contact-details h3 {
+        margin-top: 0;
+        margin-bottom: 0.4rem;
+      }
+
+      .contact-details p {
+        margin: 0.2rem 0;
+        font-size: 0.9rem;
+        color: var(--muted);
+      }
+
+      .contact-details strong {
+        color: var(--text);
+      }
+
+      .contact-box {
+        background: var(--bg-alt);
+        border-radius: var(--radius);
+        padding: 1rem;
+        box-shadow: var(--shadow-soft);
+      }
+
+      .contact-box h3 {
+        margin-top: 0;
+        margin-bottom: 0.4rem;
+      }
+
+      .contact-box p {
+        margin-top: 0;
+        font-size: 0.85rem;
+        color: var(--muted);
+      }
+
+      .form-row {
+        display: flex;
+        gap: 0.7rem;
+      }
+
+      .form-group {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 0.2rem;
+        margin-top: 0.6rem;
+      }
+
+      label {
+        font-size: 0.8rem;
+        color: var(--muted);
+      }
+
+      input,
+      textarea {
+        font: inherit;
+        padding: 0.45rem 0.6rem;
+        border-radius: 10px;
+        border: 1px solid rgba(148, 163, 184, 0.9);
+        background: #f9fafb;
+      }
+
+      textarea {
+        min-height: 100px;
+        resize: vertical;
+      }
+
+      .form-note {
+        margin-top: 0.5rem;
+        font-size: 0.75rem;
+        color: var(--muted);
+      }
+
+      .form-note button {
+        background: none;
+        border: none;
+        padding: 0;
+        margin: 0;
+        color: var(--primary);
+        text-decoration: underline;
+        text-underline-offset: 2px;
+        cursor: pointer;
+        font-size: 0.75rem;
+      }
+
+      /* Footer */
+      footer {
+        background: #020617;
+        color: #9ca3af;
+        font-size: 0.78rem;
+      }
+
+      .footer-inner {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: 0.9rem 1rem 1.2rem;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 0.7rem;
+        align-items: center;
+      }
+
+      .footer-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.8rem;
+      }
+
+      .footer-links button {
+        background: none;
+        border: none;
+        color: #e5e7eb;
+        cursor: pointer;
+        padding: 0;
+        font-size: 0.78rem;
+        text-decoration: underline;
+        text-underline-offset: 2px;
+      }
+
+      /* Modal (Rechtstexte) */
+      .modal-backdrop {
+        position: fixed;
+        inset: 0;
+        background: rgba(15, 23, 42, 0.6);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 60;
+      }
+
+      .modal-backdrop.open {
+        display: flex;
+      }
+
+      .modal {
+        background: #ffffff;
+        border-radius: 14px;
+        max-width: 620px;
+        width: 92%;
+        max-height: 80vh;
+        padding: 1rem 1.1rem;
+        box-shadow: var(--shadow-soft);
+        display: flex;
+        flex-direction: column;
+      }
+
+      .modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 0.4rem;
+      }
+
+      .modal-header h3 {
+        margin: 0;
+        font-size: 1rem;
+      }
+
+      .modal-close {
+        background: none;
+        border: none;
+        font-size: 1.3rem;
+        cursor: pointer;
+        color: var(--muted);
+      }
+
+      .modal-body {
+        font-size: 0.8rem;
+        color: var(--text);
+        overflow-y: auto;
+        padding-right: 0.4rem;
+      }
+
+      .modal-body p {
+        margin: 0 0 0.4rem;
+      }
+
+      .modal-body ul {
+        margin-top: 0.2rem;
+        padding-left: 1.1rem;
+      }
+
+      .modal-body li {
+        margin-bottom: 0.2rem;
+      }
+
+      .modal-hint {
+        margin-top: 0.6rem;
+        font-size: 0.75rem;
+        color: var(--muted);
+      }
+
+      /* Cookie-Banner */
+      .cookie-banner {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 50;
+        display: none;
+        justify-content: center;
+      }
+
+      .cookie-inner {
+        max-width: var(--max-width);
+        margin: 0.6rem;
+        background: #111827;
+        color: #e5e7eb;
+        padding: 0.9rem 1rem;
+        border-radius: 10px;
+        font-size: 0.8rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        box-shadow: 0 10px 30px rgba(15, 23, 42, 0.8);
+      }
+
+      .cookie-text {
+        max-width: 70%;
+      }
+
+      .cookie-buttons {
+        display: flex;
+        gap: 0.4rem;
+        flex-shrink: 0;
+      }
+
+      .cookie-btn-primary,
+      .cookie-btn-secondary {
+        border-radius: 999px;
+        border: none;
+        cursor: pointer;
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+        font-weight: 600;
+      }
+
+      .cookie-btn-primary {
+        background: var(--primary);
+        color: #f9fafb;
+      }
+
+      .cookie-btn-secondary {
+        background: transparent;
+        border: 1px solid #4b5563;
+        color: #e5e7eb;
+      }
+
+      /* Responsiv */
+      @media (max-width: 900px) {
+        #hero {
+          grid-template-columns: minmax(0, 1fr);
+        }
+
+        .product-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .quality-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .contact-layout {
+          grid-template-columns: minmax(0, 1fr);
+        }
+
+        .cookie-text {
+          max-width: 100%;
+        }
+      }
+
+      @media (max-width: 720px) {
+        .nav-links {
+          display: none;
+        }
+
+        .nav-toggle {
+          display: block;
+        }
+
+        .nav-links.mobile-open {
+          display: flex;
+          flex-direction: column;
+          position: absolute;
+          right: 1rem;
+          top: 56px;
+          background: #111827;
+          color: #e5e7eb;
+          padding: 0.7rem 0.9rem;
+          border-radius: 10px;
+          box-shadow: 0 14px 30px rgba(15, 23, 42, 0.8);
+          z-index: 30;
+        }
+
+        .nav-links.mobile-open a {
+          color: #e5e7eb;
+        }
+
+        .nav-cta {
+          display: none;
+        }
+
+        .section {
+          padding-inline: 1rem;
+        }
+
+        .product-grid {
+          grid-template-columns: minmax(0, 1fr);
+        }
+
+        .quality-grid {
+          grid-template-columns: minmax(0, 1fr);
+        }
+
+        .form-row {
+          flex-direction: column;
+        }
+
+        .cookie-inner {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .cookie-buttons {
+          align-self: stretch;
+          justify-content: flex-end;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <!-- Header -->
+      <header>
+        <nav class="nav">
+          <div class="nav-left">
+            <!-- Neues SVG-Logo -->
+            <a
+              href="#hero"
+              class="logo-wrapper"
+              aria-label="Startseite Vogelhäuser Bode"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 320 130"
+                role="img"
+                aria-labelledby="logoTitle"
+              >
+                <title id="logoTitle">Vogelhäuser Bode Logo</title>
+
+                <!-- Text links -->
+                <g
+                  font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+                  fill="#000"
+                  font-weight="700"
+                >
+                  <text x="0" y="55" font-size="30">
+                    Vogelhäuser
+                  </text>
+                  <text x="0" y="95" font-size="30">
+                    Bode
+                  </text>
+                </g>
+
+                <!-- Vogelhaus rechts -->
+                <g
+                  transform="translate(170, 10)"
+                  fill="#000"
+                  stroke="#000"
+                  stroke-linejoin="round"
+                  stroke-linecap="round"
+                >
+                  <!-- Dachfläche -->
+                  <polygon
+                    points="50,0 0,25 8,32 50,14 92,32 100,25"
+                    fill="#000"
+                  />
+                  <!-- Dachunterkante / Traufe -->
+                  <polygon
+                    points="10,32 90,32 90,40 10,40"
+                    fill="#000"
+                  />
+                  <!-- Hauskörper -->
+                  <polygon
+                    points="18,40 18,100 82,100 82,40"
+                    fill="#000"
+                  />
+                  <!-- Frontplatte in Weiß -->
+                  <rect x="30" y="45" width="40" height="45" fill="#fff" />
+
+                  <!-- Einflugloch -->
+                  <circle cx="50" cy="65" r="9" fill="#000" />
+
+                  <!-- kleine Strebe / Deko unter dem Loch -->
+                  <rect x="38" y="78" width="24" height="5" fill="#000" />
+
+                  <!-- Basis / Standfläche -->
+                  <rect x="24" y="95" width="52" height="8" fill="#000" />
+                  <!-- Aussparung in der Basis, wie im Logo -->
+                  <rect x="30" y="97" width="40" height="4" fill="#fff" />
+                </g>
+              </svg>
+            </a>
+
+            <div class="nav-title">
+              <span>Vogelhäuser Bode</span>
+              <span>Individuelle Vogelhäuser aus dem Sauerland</span>
+            </div>
+          </div>
+          <button class="nav-toggle" aria-label="Menü öffnen">☰</button>
+          <div class="nav-links">
+            <a href="#produkte">Produkte</a>
+            <a href="#galerie">Galerie</a>
+            <a href="#qualitaet">Qualität</a>
+            <a href="#arbeit">Unsere Arbeit</a>
+            <a href="#kontakt">Kontakt</a>
+          </div>
+          <button
+            class="nav-cta"
+            onclick="document.getElementById('kontakt').scrollIntoView({behavior:'smooth'})"
+          >
+            Anfrage stellen
+          </button>
+        </nav>
+      </header>
+
+      <main>
+        <!-- Hero -->
+        <section id="hero" class="section">
+          <div>
+            <div class="hero-badge">
+              Individuelle Vogelhäuser – in Handarbeit gefertigt
+            </div>
+            <h1 class="hero-title">
+              Vogelhäuser aus <span>sauerländer Holz</span> – direkt vom
+              Handwerksbetrieb.
+            </h1>
+            <p class="hero-subtitle">
+              Ob klassisches Sechseckhaus, Nistkasten oder Aufhänger: Jedes
+              Stück wird in der eigenen Werkstatt gebaut – mit viel Erfahrung,
+              stabilem Aufbau und durchdachter Fütterung.
+            </p>
+            <div class="hero-actions">
+              <button
+                class="btn-primary"
+                onclick="document.getElementById('produkte').scrollIntoView({behavior:'smooth'})"
+              >
+                Produkte entdecken
+              </button>
+              <button
+                class="btn-secondary"
+                onclick="document.getElementById('kontakt').scrollIntoView({behavior:'smooth'})"
+              >
+                Direkte Anfrage
+              </button>
+            </div>
+            <div class="hero-meta">
+              <span>✓ Handfertigung mit Schreinermeistern</span>
+              <span>✓ Material & Produktion in Deutschland</span>
+              <span>✓ Ziel: Reklamationsquote gegen Null</span>
+            </div>
+          </div>
+          <div class="hero-visual">
+            <!-- Platzhalterbild – später eigene Fotos von Bode einsetzen -->
+            <div class="hero-main-img">
+              <img
+                src="bilder/galerie/vogelhaeuser/sechseckhaus_2021_trsp800x600.png"
+                alt="Holz-Vogelhaus in einem Garten"
+              />
+            </div>
+            <p class="hero-note">
+              Beispiel-Foto. Im Live-Projekt werden hier Originalbilder der
+              Vogelhäuser Bode gezeigt.
+            </p>
+          </div>
+        </section>
+
+        <!-- Produkte -->
+        <section id="produkte" class="section">
+          <h2>Produkte im Überblick</h2>
+          <p class="section-sub">
+            Die bekannten Produktlinien von Vogelhäuser Bode – übersichtlich
+            nach Einsatzzweck sortiert.
+          </p>
+
+          <div class="product-grid">
+            <!-- Vogelhäuser -->
+            <article class="product-card">
+              <div class="product-image">
+                <img
+                  src="bilder/galerie/vogelhaeuser/Vogelvilla tor.png"
+                  alt="Sechseck-Vogelhaus im Garten"
+                />
+              </div>
+              <span class="product-tag">Vogelhäuser</span>
+              <div class="product-title">Sechseckhaus & Varianten</div>
+              <div class="product-meta">
+                Klassische Häuser mit Futtersilo und unterschiedlichen
+                Ausführungen – z. B. groß/klein, verschiedene Dachfarben, helle
+                oder dunkle Streben.
+              </div>
+            </article>
+
+            <!-- Nistkästen -->
+            <article class="product-card">
+              <div class="product-image">
+                <img
+                  src="bilder/galerie/nistkaesten/brutkasten500x661.png"
+                  alt="Nistkasten an einem Baum"
+                />
+              </div>
+              <span class="product-tag">Nistkästen</span>
+              <div class="product-title">Brutplätze für Meisen & Co.</div>
+              <div class="product-meta">
+                Robuste Nistkästen in verschiedenen Formen – ideal, wenn
+                natürliche Brutplätze fehlen. Meisen kehren erfahrungsgemäß
+                immer wieder.
+              </div>
+            </article>
+
+            <!-- Aufhänger -->
+            <article class="product-card">
+              <div class="product-image">
+                <img
+                  src="bilder/galerie/baumhaenger/aufhaenger_unscharf600x400.png"
+                  alt="Vogelhaus-Aufhänger im Baum"
+                />
+              </div>
+              <span class="product-tag">Aufhänger</span>
+              <div class="product-title">Baumhänger</div>
+              <div class="product-meta">
+                Spezielle Aufhänger, die so konstruiert sind, dass Fressfeinde
+                deutlich schlechter an die Vögel herankommen.
+              </div>
+            </article>
+
+            <!-- Ständer -->
+            <article class="product-card">
+              <div class="product-image">
+                <img
+                  src="bilder/galerie/staender/blaumeise_staender_hell500x971-500x720.jpg"
+                  alt="Vogelhaus auf Ständer im Garten"
+                />
+              </div>
+              <span class="product-tag">Ständer</span>
+              <div class="product-title">Stabile Dreibein-Ständer</div>
+              <div class="product-meta">
+                Verstrebte Ständer mit hoher Standfestigkeit – passend zu den
+                Vogelhäusern, in unterschiedlichen Höhen und Holzvarianten.
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- NEUE Galerie -->
+        <section id="galerie" class="section">
+          <h2>Galerie</h2>
+          <h4>Hinweiß - Alle Bilder sind nur Platzhalter !</h4>
+          <p class="section-sub">
+            Wählen Sie eine Kategorie aus, um passende Produktbilder anzusehen.
+          </p>
+
+          <div class="gallery-tabs">
+            <button
+              class="gallery-tab active"
+              data-category="vogelhaeuser"
+            >
+              Vogelhäuser
+            </button>
+            <button class="gallery-tab" data-category="nistkaesten">
+              Nistkästen
+            </button>
+            <button class="gallery-tab" data-category="baumhaenger">
+              Baumhänger
+            </button>
+            <button class="gallery-tab" data-category="staender">
+              Ständer
+            </button>
+          </div>
+
+          <div class="gallery-wrapper">
+            <div class="slider" aria-label="Bilderslider Vogelhäuser Bode">
+              <button class="slider-btn prev" aria-label="Vorheriges Bild">
+                ‹
+              </button>
+              <div class="slider-track" id="slider-track"></div>
+              <button class="slider-btn next" aria-label="Nächstes Bild">
+                ›
+              </button>
+            </div>
+            <div class="slider-dots" id="slider-dots"></div>
+          </div>
+        </section>
+
+        <!-- Qualität & Werte -->
+        <section id="qualitaet" class="section">
+          <h2>Qualität und Werte</h2>
+          <p class="section-sub">
+            Das, was auf der bisherigen Website unter „Qualität, Handwerk,
+            Design, Umwelt“ steht – hier klar strukturiert.
+          </p>
+
+          <div class="quality-grid">
+            <div class="quality-card">
+              <strong>Material & Herkunft</strong>
+              <p>
+                Holz und übrige Materialien stammen aus Deutschland, die
+                komplette Herstellung findet im eigenen Betrieb statt.
+              </p>
+            </div>
+            <div class="quality-card">
+              <strong>Handwerk vom Fach</strong>
+              <p>
+                Die Arbeiten werden von Fachkräften ausgeführt, fertige Produkte
+                von erfahrenen Meistern kontrolliert.
+              </p>
+            </div>
+            <div class="quality-card">
+              <strong>Eigenes Design</strong>
+              <p>
+                Die Modelle wurden im Betrieb entwickelt und werden laufend
+                verbessert – vom Sechseckhaus bis zu Sonderwünschen.
+              </p>
+            </div>
+            <div class="quality-card">
+              <strong>Umwelt im Blick</strong>
+              <p>
+                Kurze Wege, sorgfältiger Einsatz der Rohstoffe und der Anspruch,
+                Abfall weitgehend zu vermeiden.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Unsere Arbeit -->
+        <section id="arbeit" class="section">
+          <h2>Unsere Arbeit</h2>
+          <p>
+            Ziel von uns ist es, langlebige Produkte zu liefern, die möglichst
+            keine Reklamationen verursachen – das schont Zeit, Nerven und die
+            Umwelt. Alle Vogelhäuser werden von Hand montiert, dabei fällt
+            schnell auf, ob ein Bauteil den eigenen Ansprüchen genügt.
+          </p>
+          <p>
+            Der Betrieb wird familiär geführt. Zwei Schreinermeister und mehrere
+            Facharbeiter kümmern sich darum, dass jedes Stück passt. Besondere
+            Wünsche oder Anpassungen an Haus, Garten oder Baum können nach
+            Absprache berücksichtigt werden.
+          </p>
+        </section>
+
+        <!-- Kontakt -->
+        <section id="kontakt" class="section">
+          <h2>Kontakt & Bestellung</h2>
+          <p class="section-sub">
+            Für Fragen, Bestellungen oder Sonderwünsche – am einfachsten
+            telefonisch oder per Nachricht.
+          </p>
+
+          <div class="contact-layout">
+            <div class="contact-details">
+              <h3>Vogelhäuser Bode</h3>
+              <p>
+                <strong>Adresse</strong><br />
+                Pankratiusweg 5<br />
+                59590 Geseke
+              </p>
+              <p>
+                <strong>Telefon</strong><br />
+                Mobil: 0171 5028834 / 0160 7806063 <br />
+              </p>
+              <p>
+                <strong>E-Mail</strong><br />
+                vogelhaeuser-bode@outlook.de
+              </p>
+              <p>
+                <strong>Termine</strong><br />
+                Termine nach telefonischer Absprache.
+              </p>
+            </div>
+
+            <div class="contact-box" aria-label="Kontaktformular">
+              <h3>Nachricht hinterlassen</h3>
+              <p>
+                Schreiben Sie kurz, was Sie interessiert – Sie erhalten eine
+                persönliche Rückmeldung.
+              </p>
+              <form>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="name">Ihr Name (Pflichtfeld)</label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      placeholder="Name"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="email">Ihre E-Mail-Adresse (Pflichtfeld)</label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      placeholder="E-Mail"
+                    />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="subject">Betreff</label>
+                  <input
+                    type="text"
+                    id="subject"
+                    name="subject"
+                    placeholder="z. B. Vogelhaus, Nistkasten, Ständer"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="message">Ihre Nachricht</label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    placeholder="Kurze Beschreibung Ihres Anliegens"
+                  ></textarea>
+                </div>
+                <button type="submit" class="btn-primary">
+                  Nachricht senden
+                </button>
+                <div class="form-note">
+                  Mit dem Absenden stimmen Sie der Verarbeitung Ihrer Daten
+                  gemäß
+                  <button type="button" onclick="openLegal('datenschutz')">
+                    Datenschutzhinweisen
+                  </button>
+                  zu.
+                </div>
+              </form>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- Footer -->
+      <footer>
+        <div class="footer-inner">
+          <span
+            >© <span id="year"></span> Stefan Sternberg –
+            Vogelhäuser Bode</span
+          >
+          <div class="footer-links">
+            <button type="button" data-legal="impressum">Impressum</button>
+            <button type="button" data-legal="datenschutz">Datenschutz</button>
+            <button type="button" data-legal="agb">AGB</button>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Modal für Impressum / Datenschutz / AGB -->
+    <div
+      class="modal-backdrop"
+      id="legal-modal-backdrop"
+      aria-modal="true"
+      role="dialog"
+      aria-hidden="true"
+    >
+      <div class="modal">
+        <div class="modal-header">
+          <h3 id="legal-modal-title">Rechtstext</h3>
+          <button
+            class="modal-close"
+            aria-label="Schließen"
+            id="legal-modal-close"
+          >
+            ×
+          </button>
+        </div>
+        <div class="modal-body" id="legal-modal-body">
+          <!-- Inhalt wird per JS gesetzt -->
+        </div>
+        <div class="modal-hint">
+          Hinweis: Die hier angezeigten Texte sind Platzhalter für das Design.
+          Für den produktiven Einsatz müssen rechtssichere Inhalte (z. B. von
+          einem Anwalt oder spezialisierten Generator) eingebunden werden.
+        </div>
+      </div>
+    </div>
+
+    <!-- Cookie-Banner -->
+    <div class="cookie-banner" id="cookie-banner">
+      <div class="cookie-inner">
+        <div class="cookie-text">
+          Diese Website verwendet technisch notwendige Cookies und – optional –
+          anonyme Statistik-Cookies. Sie können Ihre Auswahl jederzeit anpassen.
+        </div>
+        <div class="cookie-buttons">
+          <button class="cookie-btn-secondary" id="cookie-necessary">
+            Nur notwendige
+          </button>
+          <button class="cookie-btn-primary" id="cookie-accept">
+            Alle akzeptieren
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Mobile Navigation
+      const navToggle = document.querySelector(".nav-toggle");
+      const navLinks = document.querySelector(".nav-links");
+
+      navToggle.addEventListener("click", () => {
+        navLinks.classList.toggle("mobile-open");
+      });
+
+      // DYNAMISCHE GALERIEN
+      const galleries = {
+        vogelhaeuser: [
+          {
+            src: "bilder/galerie/vogelhaeuser/Vogelvilla tor.png",
+            caption: "Vogelhaus – Vogelvilla (Rot)",
+          },
+          {
+            src: "bilder/galerie/vogelhaeuser/Vogelvilla grün.png",
+            caption: "Vogelhaus – Vogelvilla (Grün)",
+          },
+          {
+            src: "bilder/galerie/vogelhaeuser/sechseckhaus_2021_trsp800x600.png",
+            caption: "Vogelhaus – Sechseckhaus",
+          },
+          {
+            src: "bilder/galerie/vogelhaeuser/Landhaus.png",
+            caption: "Vogelhaus – Landhaus",
+          },
+          {
+            src: "bilder/galerie/vogelhaeuser/forsthaus_hell700x500.png",
+            caption: "Vogelhaus – Forsthaus",
+          },
+          {
+            src: "bilder/galerie/vogelhaeuser/Zaunkönig.png",
+            caption: "Vogelhaus – Zaunkönig",
+          },
+        ],
+        nistkaesten: [
+          {
+            src: "bilder/galerie/nistkaesten/brutkasten500x661.png",
+            caption: "Nistkasten / Brutkasten",
+          },
+          {
+            src: "bilder/galerie/nistkaesten/nistkasten_viereckig500x600.png",
+            caption: "Nistkasten – Viereckig",
+          },
+        ],
+        baumhaenger: [
+          {
+            src: "bilder/galerie/baumhaenger/aufhaenger_unscharf600x400.png",
+            caption: "Baumhänger – Hell",
+          },
+          {
+            src: "bilder/galerie/baumhaenger/baumhaenger_dunkel800x400.png",
+            caption: "Baumhänger – Dunkel",
+          },
+        ],
+        staender: [
+          {
+            src: "bilder/galerie/staender/blaumeise_staender_hell500x971-500x720.jpg",
+            caption: "Ständer – Blaumeise",
+          },
+          {
+            src: "bilder/galerie/staender/einbeinstaender_2021_500x900-500x720.png",
+            caption: "Ständer – Einbeinständer",
+          },
+          {
+            src: "bilder/galerie/staender/staender_streben_hell.png",
+            caption: "Ständer – Streben (Hell)",
+          },
+          {
+            src: "bilder/galerie/staender/staender_streben_dunkel.png",
+            caption: "Ständer – Streben (Dunkel)",
+          },
+        ],
+      };
+
+      const track = document.getElementById("slider-track");
+      const dotsContainer = document.getElementById("slider-dots");
+      const tabButtons = document.querySelectorAll(".gallery-tab");
+
+      let currentCategory = "vogelhaeuser";
+      let currentSlide = 0;
+      let autoSlide;
+
+      function loadGallery(category) {
+        currentCategory = category;
+        currentSlide = 0;
+
+        track.innerHTML = "";
+        dotsContainer.innerHTML = "";
+
+        galleries[category].forEach((img, i) => {
+          track.innerHTML += `
+        <div class="slide">
+          <img src="${img.src}" alt="${img.caption}">
+          <div class="slide-caption">${img.caption}</div>
+        </div>
+      `;
+          dotsContainer.innerHTML += `<button class="dot ${
+            i === 0 ? "active" : ""
+          }" data-slide="${i}"></button>`;
+        });
+
+        updateSlider(0);
+        restartAutoSlide();
+      }
+
+      function updateSlider(index) {
+        const max = galleries[currentCategory].length;
+        if (index < 0) index = max - 1;
+        if (index >= max) index = 0;
+        currentSlide = index;
+        const offset = -currentSlide * 100;
+        track.style.transform = `translateX(${offset}%)`;
+
+        dotsContainer.querySelectorAll(".dot").forEach((dot, i) => {
+          dot.classList.toggle("active", i === currentSlide);
+        });
+      }
+
+      function restartAutoSlide() {
+        clearInterval(autoSlide);
+        autoSlide = setInterval(
+          () => updateSlider(currentSlide + 1),
+          6000
+        );
+      }
+
+      const prevBtn = document.querySelector(".slider-btn.prev");
+      const nextBtn = document.querySelector(".slider-btn.next");
+
+      prevBtn.addEventListener("click", () => updateSlider(currentSlide - 1));
+      nextBtn.addEventListener("click", () => updateSlider(currentSlide + 1));
+
+      dotsContainer.addEventListener("click", (e) => {
+        if (e.target.classList.contains("dot")) {
+          updateSlider(Number(e.target.dataset.slide));
+          restartAutoSlide();
+        }
+      });
+
+      tabButtons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          tabButtons.forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+          loadGallery(btn.getAttribute("data-category"));
+        });
+      });
+
+      // Start mit Vogelhäusern
+      loadGallery("vogelhaeuser");
+
+      // Rechtstexte (Platzhalter)
+      const legalTexts = {
+        impressum: {
+          title: "Impressum (Platzhalter)",
+          body: `
+                <p><strong>Stefan Sternberg – Vogelhäuservertrieb</strong><br>
+                Pankratiusweg 5<br>
+                59590 Geseke</p>
+                Mobil: 0171 5028834 / 0160 7806063  <br>
+                E-Mail: vogelhaeuser-bode@outlook.de</p>
+                <p>Verantwortlich für den Inhalt dieser Seite ist Stefan Sternberg.</p>
+                <p>Weitere rechtlich notwendige Angaben (z. B. USt-ID, Registereintrag) werden hier im Rahmen
+                der finalen rechtssicheren Fassung ergänzt.</p>
+            `,
+        },
+        datenschutz: {
+          title: "Datenschutz (Platzhalter)",
+          body: `
+                <p>Der Schutz Ihrer persönlichen Daten ist uns wichtig. Diese Datenschutzerklärung ist
+                ein Beispieltext im Rahmen dieses Design-Entwurfs.</p>
+                <p>Im späteren Livebetrieb sind insbesondere folgende Punkte auszuformulieren:</p>
+                <ul>
+                    <li>Art, Umfang und Zweck der Verarbeitung personenbezogener Daten</li>
+                    <li>Rechtsgrundlagen (z. B. Vertrag, Einwilligung, berechtigtes Interesse)</li>
+                    <li>Speicherdauer und eingesetzte Dienstleister</li>
+                    <li>Betroffenenrechte (Auskunft, Berichtigung, Löschung, Widerspruch)</li>
+                </ul>
+                <p>Auf dieser Demo-Seite werden keine Tracking- oder Marketing-Cookies eingesetzt.</p>
+            `,
+        },
+        agb: {
+          title: "Allgemeine Geschäftsbedingungen (AGB – Platzhalter)",
+          body: `
+                <p>Die folgenden Hinweise sind kein rechtsverbindlicher Text, sondern markieren den Platz
+                für die späteren AGB.</p>
+                <p>Typische Inhalte von AGB sind unter anderem:</p>
+                <ul>
+                    <li>Geltungsbereich und Vertragspartner</li>
+                    <li>Angebot, Bestellung und Vertragsabschluss</li>
+                    <li>Preise, Zahlungsbedingungen und Lieferung</li>
+                    <li>Widerrufsrecht und Rücksendungen</li>
+                    <li>Gewährleistung, Haftung und Eigentumsvorbehalt</li>
+                </ul>
+                <p>Für den produktiven Einsatz sollten die AGB durch eine Rechtsanwaltskanzlei oder
+                einen spezialisierten Dienstleister erstellt werden.</p>
+            `,
+        },
+      };
+
+      const legalBackdrop = document.getElementById("legal-modal-backdrop");
+      const legalTitle = document.getElementById("legal-modal-title");
+      const legalBody = document.getElementById("legal-modal-body");
+      const legalClose = document.getElementById("legal-modal-close");
+      const legalButtons = document.querySelectorAll(".footer-links button");
+
+      function openLegal(key) {
+        const content = legalTexts[key];
+        if (!content) return;
+        legalTitle.textContent = content.title;
+        legalBody.innerHTML = content.body;
+        legalBackdrop.classList.add("open");
+        legalBackdrop.setAttribute("aria-hidden", "false");
+      }
+
+      legalButtons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const key = btn.getAttribute("data-legal");
+          openLegal(key);
+        });
+      });
+
+      legalClose.addEventListener("click", () => {
+        legalBackdrop.classList.remove("open");
+        legalBackdrop.setAttribute("aria-hidden", "true");
+      });
+
+      legalBackdrop.addEventListener("click", (e) => {
+        if (e.target === legalBackdrop) {
+          legalBackdrop.classList.remove("open");
+          legalBackdrop.setAttribute("aria-hidden", "true");
+        }
+      });
+
+      // Cookie-Banner
+      const cookieBanner = document.getElementById("cookie-banner");
+      const cookieAccept = document.getElementById("cookie-accept");
+      const cookieNecessary = document.getElementById("cookie-necessary");
+
+      function hideCookieBanner() {
+        cookieBanner.style.display = "none";
+      }
+
+      function showCookieBanner() {
+        cookieBanner.style.display = "flex";
+      }
+
+      const consent = localStorage.getItem("cookieConsent");
+      if (!consent) {
+        showCookieBanner();
+      }
+
+      cookieAccept.addEventListener("click", () => {
+        localStorage.setItem("cookieConsent", "all");
+        hideCookieBanner();
+        // Hier könnten später optionale Statistik-Skripte geladen werden.
+      });
+
+      cookieNecessary.addEventListener("click", () => {
+        localStorage.setItem("cookieConsent", "necessary");
+        hideCookieBanner();
+      });
+
+      // Jahr im Footer
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      // global für Formular-Link
+      window.openLegal = openLegal;
+    </script>
+  </body>
+</html>
